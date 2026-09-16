@@ -1,6 +1,8 @@
 source "https://rubygems.org"
 
 ruby "4.0.1"
+# 3.0 introduces breaking changes that are incompatible with this project.
+gem "json", "< 3.0"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 8.1.3", ">= 8.1.3.1"
