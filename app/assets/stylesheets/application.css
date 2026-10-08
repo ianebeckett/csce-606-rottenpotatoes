@@ -55,7 +55,8 @@ th.sorted-desc {
   margin-bottom: 16px;
 }
 
-.movie-form input[type="text"] {
+.movie-form input[type="text"],
+.movie-form textarea {
   box-sizing: border-box;
   width: 100%;
   margin-top: 6px;
@@ -65,7 +66,12 @@ th.sorted-desc {
   font: inherit;
 }
 
-.movie-form input[type="text"]:focus {
+.movie-form textarea {
+  resize: vertical;
+}
+
+.movie-form input[type="text"]:focus,
+.movie-form textarea:focus {
   background-color: lightgreen;
   outline: 2px solid seagreen;
   outline-offset: 2px;
