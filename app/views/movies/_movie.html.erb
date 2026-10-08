@@ -16,7 +16,9 @@
 
   <div>
     <strong>Release date:</strong>
-    <%= movie.release_date %>
+    <% if movie.release_date.present? %>
+      <%= "#{movie.release_date.strftime('%B')} #{movie.release_date.day.ordinalize}, #{movie.release_date.strftime('%Y')}" %>
+    <% end %>
   </div>
 
 </div>
