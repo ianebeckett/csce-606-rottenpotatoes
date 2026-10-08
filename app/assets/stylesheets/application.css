@@ -80,6 +80,16 @@ th.sorted-desc {
   margin-bottom: 16px;
 }
 
+.movie-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.movie-actions form {
+  margin: 0;
+}
+
 .movie-form input[type="text"],
 .movie-form textarea {
   box-sizing: border-box;
@@ -97,7 +107,7 @@ th.sorted-desc {
 
 .movie-form input[type="text"]:focus,
 .movie-form textarea:focus {
-  background-color: lightgreen;
+  background-color: #c5ebd8;
   outline: 2px solid seagreen;
   outline-offset: 2px;
 }

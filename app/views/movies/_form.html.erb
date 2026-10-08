@@ -31,7 +31,11 @@
     <%= form.text_field :release_date %>
   </div>
 
-  <div>
+  <div class="movie-actions">
     <%= form.submit %>
+    <% if movie.persisted? %>
+      <%= link_to "Show this movie", movie, class: "button" %>
+    <% end %>
+    <%= link_to "Back to movies", movies_path, class: "button" %>
   </div>
 <% end %>
