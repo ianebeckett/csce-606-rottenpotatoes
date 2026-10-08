@@ -9,7 +9,15 @@
   <thead>
     <tr>
       <% Movie.attribute_names.reject { |attr| excludes.include?(attr) }.each do |attr| %>
-        <th scope="col"><%= attr.humanize %></th>
+        <th scope="col">
+          <% is_current_sort = (session[:sort_by] == attr) %>
+          <% next_direction = (is_current_sort && session[:direction] == "asc") ? "desc" : "asc" %>
+
+          <%= link_to movies_path(sort_by: attr, direction: next_direction) do %>
+            <%= attr.humanize %>
+            <%= session[:direction] == "asc" ? " ▲" : " ▼" %>
+          <% end %>
+        </th>
       <% end %>
       <th scope="col">Link</th>
     </tr>
