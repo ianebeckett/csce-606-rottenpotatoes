@@ -1,9 +1,19 @@
+:root{
+  font-family: sans-serif;
+}
+
+h1 {
+  font-family: "Comic Sans", cursive;
+  font-size: 64px;
+  text-align: center;
+}
+
 table {
   border-collapse: collapse;
   border-style: dotted;
-  font-family: sans-serif;
   max-width: 800px;
   margin: 20px auto;
+  box-shadow: 0 8px 24px grey;
 }
 
 th, td {
@@ -26,7 +36,7 @@ th.sorted-asc {
 }
 
 .sorted-desc {
-  background-color: #ffe6e6;
+  background-color: mistyrose;
 }
 
 th.sorted-desc {
