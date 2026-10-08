@@ -43,7 +43,8 @@ th.sorted-desc {
   box-shadow: inset 0 -3px 0 0 red;
 }
 
-.movie-form {
+.movie-form,
+.movie-details {
   max-width: 480px;
   margin: 20px auto;
   padding: 24px;
