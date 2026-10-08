@@ -43,7 +43,7 @@ th.sorted-desc {
   box-shadow: inset 0 -3px 0 0 red;
 }
 
-.new-movie-form {
+.movie-form {
   max-width: 480px;
   margin: 20px auto;
   padding: 24px;
@@ -51,11 +51,11 @@ th.sorted-desc {
   box-shadow: 0 8px 24px grey;
 }
 
-.new-movie-form form > div {
+.movie-form form > div {
   margin-bottom: 16px;
 }
 
-.new-movie-form input[type="text"] {
+.movie-form input[type="text"] {
   box-sizing: border-box;
   width: 100%;
   margin-top: 6px;
@@ -65,7 +65,7 @@ th.sorted-desc {
   font: inherit;
 }
 
-.new-movie-form input[type="text"]:focus {
+.movie-form input[type="text"]:focus {
   background-color: lightgreen;
   outline: 2px solid seagreen;
   outline-offset: 2px;
