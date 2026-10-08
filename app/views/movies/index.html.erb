@@ -5,9 +5,10 @@
 <h1>Movies</h1>
 
 <table>
+  <% excludes = %w[id description created_at updated_at] %>
   <thead>
     <tr>
-      <% Movie.attribute_names.reject { |attr| %w[id description created_at updated_at].include?(attr) }.each do |attr| %>
+      <% Movie.attribute_names.reject { |attr| excludes.include?(attr) }.each do |attr| %>
         <th scope="col"><%= attr.humanize %></th>
       <% end %>
       <th scope="col">Link</th>
@@ -16,12 +17,12 @@
   <tbody>
     <% @movies.each do |movie| %>
       <tr>
-        <% Movie.attribute_names.reject { |attr| %w[id description created_at updated_at].include?(attr) }.each do |attr| %>
+        <% Movie.attribute_names.reject { |attr| excludes.include?(attr) }.each do |attr| %>
           <td><%= movie.read_attribute(attr) %></td>
         <% end %>
-          <td>
-            <%= link_to "Show this movie", movie %>
-          </td>
+        <td>
+          <%= link_to "Show this movie", movie %>
+        </td>
       </tr>
     <% end %>
   </tbody>
