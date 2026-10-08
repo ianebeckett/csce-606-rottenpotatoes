@@ -9,13 +9,15 @@
   <thead>
     <tr>
       <% Movie.attribute_names.reject { |attr| excludes.include?(attr) }.each do |attr| %>
-        <th scope="col">
-          <% is_current_sort = (session[:sort_by] == attr) %>
-          <% next_direction = (is_current_sort && session[:direction] == "asc") ? "desc" : "asc" %>
+        <% is_current_sort = (session[:sort_by] == attr) %>
+        <% current_dir = session[:direction] %>
+        <% sort_class = is_current_sort ? "sorted-#{current_dir}" : "" %>
+        <% next_direction = (is_current_sort && current_dir == "asc") ? "desc" : "asc" %>
 
+        <th scope="col" class="<%= sort_class %>" aria-sort="<%= current_dir == 'asc' ? 'ascending' : 'descending' if is_current_sort %>">
           <%= link_to movies_path(sort_by: attr, direction: next_direction) do %>
             <%= attr.humanize %>
-            <%= session[:direction] == "asc" ? " ▲" : " ▼" %>
+            <%= current_dir == "asc" ? " ▲" : " ▼" if is_current_sort %>
           <% end %>
         </th>
       <% end %>
@@ -26,7 +28,16 @@
     <% @movies.each do |movie| %>
       <tr>
         <% Movie.attribute_names.reject { |attr| excludes.include?(attr) }.each do |attr| %>
-          <td><%= movie.read_attribute(attr) %></td>
+          <% is_current_sort = (session[:sort_by] == attr) %>
+          <% sort_class = is_current_sort ? "sorted-#{session[:direction]}" : "" %>
+          <td class="<%= sort_class %>">
+            <% value = movie.read_attribute(attr) %>
+            <% if value.is_a?(ActiveSupport::TimeWithZone) %>
+              <%= "#{value.strftime('%B')} #{value.day.ordinalize}, #{value.strftime('%Y')}" %>
+            <% else %>
+              <%= value %>
+            <% end %>
+          </td>
         <% end %>
         <td>
           <%= link_to "Show this movie", movie %>
