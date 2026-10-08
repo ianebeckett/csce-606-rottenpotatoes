@@ -23,8 +23,32 @@ th, td {
   min-width: 100px;
 }
 
-th a {
+.button,
+button,
+input[type="submit"] {
+  display: inline-block;
+  margin: 4px 0;
+  padding: 8px 12px;
+  border: 1px solid black;
+  border-radius: 4px;
+  background-color: lightgrey;
+  color: black;
+  font: inherit;
+  text-align: center;
   text-decoration: none;
+}
+
+.button:hover,
+button:hover,
+input[type="submit"]:hover {
+  background-color: #c5ebd8;
+}
+
+.button:focus-visible,
+button:focus-visible,
+input[type="submit"]:focus-visible {
+  outline: 2px solid seagreen;
+  outline-offset: 2px;
 }
 
 .sorted-asc {

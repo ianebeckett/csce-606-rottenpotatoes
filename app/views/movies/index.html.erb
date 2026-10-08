@@ -15,7 +15,7 @@
         <% next_direction = (is_current_sort && current_dir == "asc") ? "desc" : "asc" %>
 
         <th scope="col" class="<%= sort_class %>" aria-sort="<%= current_dir == 'asc' ? 'ascending' : 'descending' if is_current_sort %>">
-          <%= link_to movies_path(sort_by: attr, direction: next_direction) do %>
+          <%= link_to movies_path(sort_by: attr, direction: next_direction), class: "button" do %>
             <%= attr.humanize %>
             <%= current_dir == "asc" ? " ▲" : " ▼" if is_current_sort %>
           <% end %>
@@ -40,7 +40,7 @@
           </td>
         <% end %>
         <td>
-          <%= link_to "Show this movie", movie %>
+          <%= link_to "Show this movie", movie, class: "button" %>
         </td>
       </tr>
     <% end %>
@@ -48,7 +48,7 @@
   <tfoot>
     <tr>
       <td>
-        <%= link_to "New movie", new_movie_path %>
+        <%= link_to "New movie", new_movie_path, class: "button" %>
       </td>
     </tr>
   </tfoot>
