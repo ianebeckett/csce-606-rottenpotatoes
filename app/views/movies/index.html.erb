@@ -5,10 +5,10 @@
 <h1>Movies</h1>
 
 <table>
-  <% excludes = %w[id description created_at updated_at] %>
+  <% columns = %w[title rating release_date] %>
   <thead>
     <tr>
-      <% Movie.attribute_names.reject { |attr| excludes.include?(attr) }.each do |attr| %>
+      <% columns.each do |attr| %>
         <% is_current_sort = (session[:sort_by] == attr) %>
         <% current_dir = session[:direction] %>
         <% sort_class = is_current_sort ? "sorted-#{current_dir}" : "" %>
@@ -27,7 +27,7 @@
   <tbody>
     <% @movies.each do |movie| %>
       <tr>
-        <% Movie.attribute_names.reject { |attr| excludes.include?(attr) }.each do |attr| %>
+        <% columns.each do |attr| %>
           <% is_current_sort = (session[:sort_by] == attr) %>
           <% sort_class = is_current_sort ? "sorted-#{session[:direction]}" : "" %>
           <td class="<%= sort_class %>">
